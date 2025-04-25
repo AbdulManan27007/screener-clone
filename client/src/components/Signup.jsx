@@ -64,7 +64,7 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordRegex = /^.{6,}$/;
     if (!passwordRegex.test(password)) {
       alert(
         "Password must be at least 8 characters long and contain both letters and numbers."
@@ -117,7 +117,7 @@ function Signup() {
             className="p-8 rounded-lg shadow-lg !bg-transparent bg-opacity-80"
             style={{ backdropFilter: "blur(10px)" }}
           >
-            <div className="text-center flex flex-col items-center animate__animated animate__fadeIn">
+            <div className="flex flex-col items-center text-center animate__animated animate__fadeIn">
               <img
                 src={logo}
                 alt="logo"
@@ -168,7 +168,7 @@ function Signup() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
 
-              {/* <div className="mb-4 flex gap-4">
+              {/* <div className="flex gap-4 mb-4">
                 <Paragraph className="!text-gray-200">Select Role:</Paragraph>
                 <Switch
                   checked={isAdmin}
@@ -191,10 +191,10 @@ function Signup() {
                 </Upload>
               </div>
 
-              <div className="text-center pt-1 mb-5">
+              <div className="pt-1 mb-5 text-center">
                 <Button
                   type="primary"
-                  className="mb-4 w-full"
+                  className="w-full mb-4"
                   size="large"
                   htmlType="submit"
                 >

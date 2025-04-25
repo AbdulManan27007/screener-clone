@@ -7,7 +7,7 @@ import { fetchSingleToken } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { Spin } from "antd";
 import io from "socket.io-client";
-// import { mapToTradingViewSymbol } from "../utils/symbolMapper"; 
+import CarLeaderboard from '../components/headercrousal';
 
 const socket = io(import.meta.env.VITE_API_URL);
 
@@ -43,13 +43,29 @@ const TradingChart = () => {
     };
   }, [pairAddress]);
 
-  // Map the token symbol to a valid TradingView symbol
-  // const tradingViewSymbol = token ? mapToTradingViewSymbol(token.symbol) : "BINANCE:BTCUSDT"; // Default to BTCUSDT if no token is loaded
-
+  const dummyData = [
+    { id: 2, name: 'ALA 40%', position: '9th', highlight: 'gold' },
+    { id: 1, name: 'RENCHER #100', position: 'NX', highlight: 'red' },
+    { id: 4, name: 'WD', position: 'NX 9th' },
+    { id: 5, name: 'WD', position: 'NX 9th' },
+    { id: 4, name: 'WD', position: 'NX 9th' },
+    { id: 6, name: 'WD', position: 'NX 9th' },
+    { id: 7, name: 'WD', position: 'NX 9th' },
+    { id: 8, name: 'WD', position: 'NX 9th' },
+    { id: 9, name: 'WD', position: 'NX 9th' },
+    { id: 10, name: 'WD', position: 'NX 9th' },
+    { id: 11, name: 'WD', position: 'NX 9th' },
+    { id: 12, name: 'WD', position: 'NX 9th' },
+    { id: 13, name: 'WD', position: 'NX 9th' },
+    { id: 14, name: 'WD', position: 'NX 9th' },
+    // Add more entries as needed...
+  ];
+  
   return (
     <div className="flex h-screen overflow-hidden text-black">
-      <div className="flex-1 flex flex-col">
+      <div className="flex flex-col flex-1">
       {/* Pass the mapped symbol to the TradingViewWidget */}
+      <CarLeaderboard entries={dummyData} />
       <div className="h-[50vh]">
         <ChartExample  />
       </div>
